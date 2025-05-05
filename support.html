@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХимЭксперт - Поддержка</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/support.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-atom"></i>
+                    <span>ХимЭксперт</span>
+                </a>
+            </div>
+            
+            <div class="user-profile" id="userProfile">
+                <span class="profile-name">Данил Розов</span>
+                <img src="images/danil1.png" alt="Профиль Данила" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Главная</a></li>
+                <li class="nav-item"><a href="theory.html">Теория</a></li>
+                <li class="nav-item"><a href="practice.html">Практика</a></li>
+                <li class="nav-item"><a href="tasks.html">Задачи</a></li>
+                <li class="nav-item"><a href="profile.html">Кабинет</a></li>
+                <li class="nav-item"><a href="support.html" class="active">Поддержка</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Поддержка и помощь</h1>
+        
+        <div class="card">
+            <p>Здесь ты можешь задать вопрос своему персональному ассистенту Георгию или найти ответ в нашей базе знаний.</p>
+        </div>
+        
+        <div class="support-grid">
+            <div class="support-card faq">
+                <h2><i class="fas fa-question-circle"></i> Частые вопросы</h2>
+                
+                <div class="faq-item" onclick="toggleFaq('faq1')">
+                    <div class="faq-question">
+                        <h3>Как быстро подготовиться к ЕГЭ по химии?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq1">
+                        <p>Оптимальный срок подготовки - 6-12 месяцев. Начните с повторения базовых тем (строение атома, Периодический закон), затем переходите к более сложным разделам. Решайте как можно больше задач из реальных вариантов ЕГЭ.</p>
+                        <p>Используйте наш персональный план подготовки, который адаптируется под ваш прогресс.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq('faq2')">
+                    <div class="faq-question">
+                        <h3>Как запомнить все химические реакции?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq2">
+                        <p>Не нужно запоминать все реакции! Важно понимать общие принципы:</p>
+                        <ul>
+                            <li>Классификация реакций (соединения, разложения, замещения, обмена)</li>
+                            <li>Закономерности протекания реакций (активность металлов, сила кислот и т.д.)</li>
+                            <li>Типичные свойства классов соединений</li>
+                        </ul>
+                        <p>Начните с основных реакций неорганической химии, затем переходите к органике.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" onclick="toggleFaq('faq3')">
+                    <div class="faq-question">
+                        <h3>Как решать задачи на смеси и растворы?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq3">
+                        <p>Алгоритм решения:</p>
+                        <ol>
+                            <li>Определите, какие вещества входят в смесь/раствор</li>
+                            <li>Запишите все известные данные (массы, объемы, концентрации)</li>
+                            <li>Составьте уравнение реакции (если требуется)</li>
+                            <li>Введите переменные для неизвестных количеств веществ</li>
+                            <li>Составьте систему уравнений на основе законов сохранения массы и количества вещества</li>
+                            <li>Решите систему и найдите искомые величины</li>
+                        </ol>
+                        <p>Попрактикуйтесь в разделе "Задачи" с нашими пошаговыми подсказками.</p>
+                    </div>
+                </div>
+                
+                <button class="btn btn-secondary" onclick="showAllFaq()">
+                    <i class="fas fa-list"></i> Показать все вопросы
+                </button>
+            </div>
+            
+            <div class="support-card ask">
+                <h2><i class="fas fa-comment-dots"></i> Задать вопрос</h2>
+                
+                <form id="supportForm">
+                    <div class="form-group">
+                        <label for="questionTopic">Тема вопроса</label>
+                        <select id="questionTopic">
+                            <option value="theory">Теоретический вопрос</option>
+                            <option value="practice">Практическое задание</option>
+                            <option value="task">Решение задачи</option>
+                            <option value="other">Другое</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="questionText">Ваш вопрос</label>
+                        <textarea id="questionText" rows="5" placeholder="Опишите подробно ваш вопрос..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="questionFile">Прикрепить файл (если нужно)</label>
+                        <input type="file" id="questionFile">
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i> Отправить вопрос
+                    </button>
+                </form>
+                
+                <div class="support-info">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Время ответа</h3>
+                            <p>Обычно мы отвечаем в течение 1-2 часов в рабочее время (10:00-18:00 МСК)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <i class="fas fa-user-tie"></i>
+                        <div>
+                            <h3>Ваш ассистент</h3>
+                            <p>Георгий - эксперт по химии с 10-летним опытом подготовки к ЕГЭ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="motivation-block">
+            <img src="images/georgiy4.png" alt="Георгий готов помочь" class="motivation-photo">
+            <div class="motivation-text">
+                <h3>Совет от Георгия:</h3>
+                <p>"Не стесняйся задавать вопросы! Лучше спросить и понять, чем пропустить важную тему."</p>
+                <div class="motivation-quote">
+                    "Данил, я всегда готов помочь тебе разобраться в сложных темах. Вместе мы справимся с любой задачей!"<br>
+                    <small>- Георгий</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ХимЭксперт</h3>
+                <p>Персональный курс подготовки к ЕГЭ по химии для Данила Розова.</p>
+                <p class="footer-message">Мы всегда готовы помочь тебе в обучении!</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Разделы</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="theory.html">Теория</a></li>
+                    <li class="footer-link"><a href="practice.html">Практика</a></li>
+                    <li class="footer-link"><a href="tasks.html">Задачи</a></li>
+                    <li class="footer-link"><a href="profile.html">Личный кабинет</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Поддержка</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="support.html">Задать вопрос</a></li>
+                    <li class="footer-link"><a href="#">Методические материалы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 ХимЭксперт. Сайт создан Grofer256 специально для Данила Розова.</p>
+        </div>
+    </footer>
+
+    <!-- Чат поддержки -->
+    <div class="support-chat" onclick="openSupportChat()">
+        <div class="chat-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-label">Ассистент Георгий</div>
+    </div>
+
+    <script src="js/support.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

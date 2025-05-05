@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХимЭксперт - Главная</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-atom"></i>
+                    <span>ХимЭксперт</span>
+                </a>
+            </div>
+            
+            <div class="user-profile" id="userProfile">
+                <span class="profile-name">Данил Розов</span>
+                <img src="images/danil1.png" alt="Профиль Данила" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Главная</a></li>
+                <li class="nav-item"><a href="theory.html" class="nav-link">Теория</a></li>
+                <li class="nav-item"><a href="practice.html" class="nav-link">Практика</a></li>
+                <li class="nav-item"><a href="tasks.html" class="nav-link">Задачи</a></li>
+                <li class="nav-item"><a href="profile.html" class="nav-link">Кабинет</a></li>
+                <li class="nav-item"><a href="support.html" class="nav-link">Поддержка</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero">
+            <h1>Добро пожаловать, Данил!</h1>
+            <p>Твой персональный помощник в подготовке к ЕГЭ по химии</p>
+        </section>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <h3>Дней до экзамена</h3>
+                <p id="days-left">17</p>
+            </div>
+            <div class="stat-card">
+                <h3>Пройдено тем</h3>
+                <p id="topics-passed">24</p>
+            </div>
+            <div class="stat-card">
+                <h3>Решено задач</h3>
+                <p id="tasks-solved">156</p>
+            </div>
+            <div class="stat-card">
+                <h3>Твой прогресс</h3>
+                <p id="progress-percent">68%</p>
+            </div>
+        </div>
+        
+        <div class="motivation-block">
+            <img src="images/danil3.png" alt="Данил до решения задачи" class="motivation-photo">
+            <div class="motivation-text">
+                <h3>Ты до решения задачи:</h3>
+                <p>"Я никогда не пойму эту химию! Это слишком сложно!"</p>
+                <div class="motivation-quote">
+                    "Помни, Данил, даже Менделеев когда-то начинал с азов!"<br>
+                    <small>- Георгий, твой химический гуру</small>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Персональные рекомендации</h2>
+            <p>Сегодня мы рекомендуем тебе повторить тему "Электролиз растворов". Ты можешь найти материалы в разделе Теория.</p>
+            <button class="btn" onclick="location.href='theory.html'">Перейти к теории</button>
+        </div>
+        
+        <div class="motivation-block reverse">
+            <div class="motivation-text">
+                <h3>Ты после решения задачи:</h3>
+                <p>"Химия - это просто, когда разбираешься в основах!"</p>
+                <div class="motivation-quote">
+                    "Видишь, Данил? Ты способен на большее, чем думаешь!"<br>
+                    <small>- Георгий</small>
+                </div>
+            </div>
+            <img src="images/danil4.png" alt="Данил после решения задачи" class="motivation-photo">
+        </div>
+        
+        <div class="card">
+            <h2>Последние достижения</h2>
+            <div class="achievement-item">
+                <div class="achievement-icon">
+                    <i class="fas fa-medal"></i>
+                </div>
+                <div class="achievement-text">
+                    <strong>Решил 10 задач по органике без ошибок</strong>
+                    <p>05.05.2025</p>
+                </div>
+            </div>
+            <div class="achievement-item">
+                <div class="achievement-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="achievement-text">
+                    <strong>Освоил тему "Скорость химических реакций"</strong>
+                    <p>03.05.2025</p>
+                </div>
+            </div>
+            <button class="btn btn-secondary" onclick="location.href='profile.html'">Все достижения</button>
+        </div>
+        
+        <div class="motivation-block">
+            <img src="images/danil5.png" alt="Данил изучает химию" class="motivation-photo">
+            <div class="motivation-text">
+                <h3>Цитата дня:</h3>
+                <p>"Химия - это магия, которую можно объяснить!"</p>
+                <div class="motivation-quote">
+                    "Данил, помни: каждый решенный пример приближает тебя к цели. Ты уже прошел 68% пути!"<br>
+                    <small>- Георгий</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ХимЭксперт</h3>
+                <p>Персональный курс подготовки к ЕГЭ по химии для Данила Розова.</p>
+                <p class="footer-message">Данил, ты сможешь! Мы в тебя верим!</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Разделы</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="theory.html">Теория</a></li>
+                    <li class="footer-link"><a href="practice.html">Практика</a></li>
+                    <li class="footer-link"><a href="tasks.html">Задачи</a></li>
+                    <li class="footer-link"><a href="profile.html">Личный кабинет</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Поддержка</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="support.html">Задать вопрос</a></li>
+                    <li class="footer-link"><a href="#">Методические материалы</a></li>
+                    <li class="footer-link"><a href="#">Советы по подготовке</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Контакты</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="#"><i class="fas fa-envelope"></i> chemistry@expert.ru</a></li>
+                    <li class="footer-link"><a href="#"><i class="fas fa-user"></i> Ассистент Георгий</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 ХимЭксперт. Сайт создан Grofer256 специально для Данила Розова.</p>
+        </div>
+    </footer>
+
+    <!-- Чат поддержки -->
+    <div class="support-chat" onclick="openSupportChat()">
+        <div class="chat-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-label">Ассистент Георгий</div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

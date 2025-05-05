@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХимЭксперт - Задачи</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/tasks.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-atom"></i>
+                    <span>ХимЭксперт</span>
+                </a>
+            </div>
+            
+            <div class="user-profile" id="userProfile">
+                <span class="profile-name">Данил Розов</span>
+                <img src="images/danil1.png" alt="Профиль Данила" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Главная</a></li>
+                <li class="nav-item"><a href="theory.html">Теория</a></li>
+                <li class="nav-item"><a href="practice.html">Практика</a></li>
+                <li class="nav-item"><a href="tasks.html" class="active">Задачи</a></li>
+                <li class="nav-item"><a href="profile.html">Кабинет</a></li>
+                <li class="nav-item"><a href="support.html">Поддержка</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Тренировочные задачи ЕГЭ</h1>
+        
+        <div class="card">
+            <p>Решай задачи из реальных вариантов ЕГЭ прошлых лет. Система автоматически проверит твои ответы и даст подробные объяснения.</p>
+            
+            <div class="tasks-controls">
+                <div class="tasks-filter">
+                    <select id="taskTheme">
+                        <option value="all">Все темы</option>
+                        <option value="atomic">Строение атома</option>
+                        <option value="periodic">Периодический закон</option>
+                        <option value="inorganic">Неорганическая химия</option>
+                        <option value="organic">Органическая химия</option>
+                        <option value="reactions">Химические реакции</option>
+                        <option value="calculations">Расчетные задачи</option>
+                    </select>
+                    
+                    <select id="taskDifficulty">
+                        <option value="all">Любая сложность</option>
+                        <option value="easy">Базовый уровень</option>
+                        <option value="medium">Повышенный уровень</option>
+                        <option value="hard">Высокий уровень</option>
+                    </select>
+                </div>
+                
+                <button class="btn" id="generateTask">
+                    <i class="fas fa-random"></i> Случайная задача
+                </button>
+            </div>
+        </div>
+        
+        <div class="task-view" id="taskView">
+            <div class="task-header">
+                <div class="task-info">
+                    <span class="task-theme">Неорганическая химия</span>
+                    <span class="task-difficulty medium">Средняя сложность</span>
+                    <span class="task-number">Задача 24</span>
+                </div>
+                <div class="task-timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="taskTime">03:45</span>
+                </div>
+            </div>
+            
+            <div class="task-content">
+                <div class="task-question">
+                    <p>При взаимодействии 16,2 г алюминия с серой образовалось 30,6 г сульфида алюминия. Определите массовую долю выхода продукта реакции от теоретически возможного.</p>
+                </div>
+                
+                <div class="task-answer">
+                    <h3>Ваш ответ:</h3>
+                    <input type="text" id="taskAnswer" placeholder="Введите ответ...">
+                    <button class="btn" id="checkAnswer">Проверить</button>
+                </div>
+                
+                <div class="task-solution hidden" id="taskSolution">
+                    <h3>Решение:</h3>
+                    <ol>
+                        <li>Записываем уравнение реакции: 2Al + 3S → Al₂S₃</li>
+                        <li>Находим количество вещества алюминия: n(Al) = m/M = 16,2/27 = 0,6 моль</li>
+                        <li>По уравнению реакции: n(Al₂S₃) = 1/2 n(Al) = 0,3 моль</li>
+                        <li>Теоретическая масса Al₂S₃: m(теор) = n*M = 0,3*150 = 45 г</li>
+                        <li>Выход продукта: η = m(практ)/m(теор)*100% = 30,6/45*100% = 68%</li>
+                    </ol>
+                    <div class="solution-answer">
+                        <strong>Ответ:</strong> <span id="correctAnswer">68%</span>
+                    </div>
+                </div>
+                
+                <div class="task-feedback hidden" id="taskFeedback">
+                    <div class="feedback-correct">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Правильно! Молодец, Данил! Ты отлично справился с этой задачей.</p>
+                    </div>
+                    <div class="feedback-incorrect">
+                        <i class="fas fa-times-circle"></i>
+                        <p>Неверно. Посмотри решение и попробуй еще раз. Ты почти у цели!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="task-actions">
+                <button class="btn btn-secondary" id="showSolution">
+                    <i class="fas fa-book-open"></i> Показать решение
+                </button>
+                <button class="btn" id="nextTask">
+                    Следующая задача <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="tasks-stats">
+            <div class="stats-card">
+                <h3>Общая статистика</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span>Всего решено:</span>
+                        <strong>156</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Правильно:</span>
+                        <strong>112</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Точность:</span>
+                        <strong>72%</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Среднее время:</span>
+                        <strong>4:12</strong>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-card">
+                <h3>Прогресс по темам</h3>
+                <div class="progress-bars">
+                    <div class="progress-item">
+                        <span>Неорганическая химия</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 78%"></div>
+                            <span>78%</span>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span>Органическая химия</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                            <span>65%</span>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span>Расчетные задачи</span>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 54%"></div>
+                            <span>54%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="motivation-block">
+            <img src="images/georgiy2.png" alt="Георгий анализирует прогресс" class="motivation-photo">
+            <div class="motivation-text">
+                <h3>Анализ твоего прогресса:</h3>
+                <p>"Данил, ты показываешь отличные результаты в неорганической химии, но нужно больше практиковаться в расчетных задачах."</p>
+                <div class="motivation-quote">
+                    "Я подготовил для тебя индивидуальный план на неделю, чтобы подтянуть слабые места. Ты справишься!"<br>
+                    <small>- Георгий, твой репетитор</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ХимЭксперт</h3>
+                <p>Персональный курс подготовки к ЕГЭ по химии для Данила Розова.</p>
+                <p class="footer-message">Каждая решенная задача приближает тебя к успеху!</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Разделы</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="theory.html">Теория</a></li>
+                    <li class="footer-link"><a href="practice.html">Практика</a></li>
+                    <li class="footer-link"><a href="tasks.html">Задачи</a></li>
+                    <li class="footer-link"><a href="profile.html">Личный кабинет</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Поддержка</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="support.html">Задать вопрос</a></li>
+                    <li class="footer-link"><a href="#">Методические материалы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 ХимЭксперт. Сайт создан Grofer256 специально для Данила Розова.</p>
+        </div>
+    </footer>
+
+    <!-- Чат поддержки -->
+    <div class="support-chat" onclick="openSupportChat()">
+        <div class="chat-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-label">Ассистент Георгий</div>
+    </div>
+
+    <script src="js/tasks.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

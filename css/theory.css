@@ -1,0 +1,597 @@
+/* Основные стили для теории */
+.theory-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.theory-section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.theory-section h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topic-card {
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: all 0.3s;
+}
+
+.topic-card:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.topic-header {
+    padding: 1.2rem;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.topic-header h3 {
+    margin: 0;
+    color: var(--dark);
+}
+
+.topic-header i {
+    transition: transform 0.3s;
+}
+
+.topic-card.active .topic-header i {
+    transform: rotate(180deg);
+}
+
+.topic-content {
+    padding: 0 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s, padding 0.3s;
+}
+
+.topic-card.active .topic-content {
+    padding: 1.2rem;
+    max-height: 5000px;
+}
+
+.theory-quote {
+    background-color: rgba(142, 68, 173, 0.1);
+    border-left: 3px solid var(--primary);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    display: flex;
+    gap: 1rem;
+}
+
+.theory-quote i {
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+.formula {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    background-color: #f5f5f5;
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.theory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+.theory-table th, .theory-table td {
+    padding: 0.8rem;
+    border: 1px solid #eee;
+    text-align: left;
+}
+
+.theory-table th {
+    background-color: #f9f9f9;
+    color: var(--dark);
+}
+
+.theory-tip {
+    background-color: rgba(241, 196, 15, 0.1);
+    border-left: 3px solid var(--warning);
+    padding: 1rem;
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.theory-tip i {
+    color: var(--warning);
+    font-size: 1.5rem;
+}
+
+/* Интерактивные элементы */
+.interactive-example {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.atom-model {
+    width: 200px;
+    height: 200px;
+    margin: 1rem auto;
+    position: relative;
+}
+
+.nucleus {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.electron {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #3498db;
+    border-radius: 50%;
+    animation: orbit 5s linear infinite;
+}
+
+.electron::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px dashed rgba(52, 152, 219, 0.3);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes orbit {
+    from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+    to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+.periodic-trends {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.trend-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.2rem;
+    border-left: 4px solid var(--secondary);
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    gap: 3px;
+    margin: 1.5rem 0;
+}
+
+.element {
+    padding: 0.5rem;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.element:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.element.small {
+    grid-column: span 2;
+}
+
+.element.medium {
+    grid-column: span 4;
+}
+
+.element.large {
+    grid-column: span 10;
+}
+
+.element-info {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.2rem;
+    min-height: 100px;
+}
+
+/* Стили для реакций */
+.reaction-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.reaction-type {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--primary);
+}
+
+.reaction-example {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1rem 0;
+    padding: 0.8rem;
+    background-color: white;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+}
+
+.btn-reaction {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-reaction:hover {
+    background-color: #2980b9;
+}
+
+.btn-reaction.btn-success {
+    background-color: var(--success);
+}
+
+.reaction-practice {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.reaction-to-identify {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 6px;
+}
+
+.reaction-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.reaction-feedback {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 6px;
+    display: none;
+}
+
+.reaction-feedback.correct {
+    background-color: rgba(46, 204, 113, 0.2);
+    border-left: 3px solid var(--success);
+    display: block;
+}
+
+.reaction-feedback.incorrect {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-left: 3px solid var(--danger);
+    display: block;
+}
+
+/* Стили для органической химии */
+.organic-classes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.organic-class {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.molecule-viewer {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.molecule-structure {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+}
+
+.atom {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.atom.c {
+    background-color: #333;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.atom.h {
+    background-color: #ccc;
+    color: #333;
+    width: 20px;
+    height: 20px;
+    font-size: 0.6rem;
+}
+
+.atom.o {
+    background-color: #e74c3c;
+}
+
+.atom.n {
+    background-color: #3498db;
+}
+
+.bond {
+    position: absolute;
+    background-color: #666;
+    height: 2px;
+    width: 30px;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+}
+
+.bond.double {
+    height: 4px;
+}
+
+.bond.triple {
+    height: 6px;
+}
+
+.nomenclature-practice {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.compound-to-name {
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 6px;
+}
+
+#nomenclatureAnswer {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.nomenclature-feedback {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 6px;
+    display: none;
+}
+
+.nomenclature-feedback.correct {
+    background-color: rgba(46, 204, 113, 0.2);
+    border-left: 3px solid var(--success);
+    display: block;
+}
+
+.nomenclature-feedback.incorrect {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-left: 3px solid var(--danger);
+    display: block;
+}
+
+/* Стили для электрохимии */
+.electrolysis-simulator {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.electrolysis-setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.electrodes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+    width: 100%;
+}
+
+.electrode {
+    width: 60px;
+    padding: 1rem;
+    background-color: #333;
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 2;
+}
+
+.solution {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 100px;
+    background-color: rgba(52, 152, 219, 0.2);
+    border: 2px dashed var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.power-switch {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.switch {
+    width: 50px;
+    height: 25px;
+    background-color: #ddd;
+    border-radius: 25px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.switch::after {
+    content: '';
+    position: absolute;
+    width: 21px;
+    height: 21px;
+    background-color: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s;
+}
+
+.power-switch.active .switch {
+    background-color: var(--success);
+}
+
+.power-switch.active .switch::after {
+    left: 27px;
+}
+
+.reaction-products {
+    margin-top: 1.5rem;
+}
+
+.bubble {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    animation: bubble 1.5s ease-out forwards;
+    z-index: 1;
+}
+
+@keyframes bubble {
+    0% { transform: scale(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.electrolysis-practice {
+    margin-top: 2rem;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+#electrolyteSelect {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    margin: 1rem 0;
+}
+
+.electrolysis-feedback {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 6px;
+    display: none;
+}
+
+.electrolysis-feedback.show {
+    display: block;
+    background-color: #f9f9f9;
+    border-left: 3px solid var(--primary);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .periodic-table {
+        grid-template-columns: repeat(9, 1fr);
+    }
+    
+    .element.large {
+        grid-column: span 5;
+    }
+    
+    .reaction-types {
+        grid-template-columns: 1fr;
+    }
+    
+    .organic-classes {
+        grid-template-columns: 1fr;
+    }
+}

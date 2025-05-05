@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХимЭксперт - Теория</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theory.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-atom"></i>
+                    <span>ХимЭксперт</span>
+                </a>
+            </div>
+            
+            <div class="user-profile" id="userProfile">
+                <span class="profile-name">Данил Розов</span>
+                <img src="images/danil1.png" alt="Профиль Данила" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Главная</a></li>
+                <li class="nav-item"><a href="theory.html" class="active">Теория</a></li>
+                <li class="nav-item"><a href="practice.html">Практика</a></li>
+                <li class="nav-item"><a href="tasks.html">Задачи</a></li>
+                <li class="nav-item"><a href="profile.html">Кабинет</a></li>
+                <li class="nav-item"><a href="support.html">Поддержка</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Теоретические материалы</h1>
+        
+        <div class="card">
+            <p>Здесь собраны все необходимые теоретические материалы для подготовки к ЕГЭ по химии. Используй поиск или выбирай тему из списка.</p>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Поиск по теории..." id="theorySearch">
+                <button onclick="searchTheory()"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        
+        <div class="theory-sections">
+            <!-- Раздел общей химии -->
+            <div class="theory-section">
+                <h2><i class="fas fa-flask"></i> Общая химия</h2>
+                
+                <div class="topic-card" onclick="toggleTopic('topic1')">
+                    <div class="topic-header">
+                        <h3>Строение атома</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="topic-content" id="topic1">
+                        <div class="theory-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <div>
+                                "Атом - это как мини-вселенная: в центре ядро (протоны и нейтроны), а вокруг летают электроны, как планеты!"<br>
+                                <small>- Георгий объясняет просто</small>
+                            </div>
+                        </div>
+                        
+                        <h4>Основные понятия:</h4>
+                        <ul>
+                            <li>Атом состоит из ядра (протоны + нейтроны) и электронной оболочки</li>
+                            <li>Заряд ядра равен порядковому номеру элемента в таблице Менделеева</li>
+                            <li>Число электронов = числу протонов (в нейтральном атоме)</li>
+                        </ul>
+                        
+                        <h4>Формулы и законы:</h4>
+                        <div class="formula">A = Z + N</div>
+                        <p>Где:<br>
+                        A - массовое число<br>
+                        Z - число протонов (зарядовое число)<br>
+                        N - число нейтронов</p>
+                        
+                        <div class="interactive-example">
+                            <h5>Интерактивный пример:</h5>
+                            <p>Определи число протонов, нейтронов и электронов в атоме:</p>
+                            <select id="elementSelector" onchange="updateAtomModel()">
+                                <option value="H">Водород (H)</option>
+                                <option value="C">Углерод (C)</option>
+                                <option value="O">Кислород (O)</option>
+                                <option value="Fe">Железо (Fe)</option>
+                            </select>
+                            <div class="atom-model" id="atomModel">
+                                <!-- Атомная модель будет генерироваться JS -->
+                            </div>
+                            <div class="atom-stats" id="atomStats"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="topic-card" onclick="toggleTopic('topic2')">
+                    <div class="topic-header">
+                        <h3>Периодический закон</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="topic-content" id="topic2">
+                        <div class="theory-quote">
+                            <i class="fas fa-quote-left"></i>
+                            <div>
+                                "Периодическая таблица - это как паспортный стол для элементов: у каждого есть свой номер и характерные свойства!"<br>
+                                <small>- Георгий о таблице Менделеева</small>
+                            </div>
+                        </div>
+                        
+                        <h4>Основные понятия:</h4>
+                        <ul>
+                            <li>Свойства элементов периодически зависят от заряда их атомных ядер</li>
+                            <li>Горизонтальные ряды - периоды (7 штук)</li>
+                            <li>Вертикальные столбцы - группы (8 главных)</li>
+                        </ul>
+                        
+                        <h4>Закономерности:</h4>
+                        <div class="periodic-trends">
+                            <div class="trend-card">
+                                <h5>В периодах (слева направо):</h5>
+                                <ul>
+                                    <li>↑ Заряд ядра</li>
+                                    <li>↓ Атомный радиус</li>
+                                    <li>↑ Окислительные свойства</li>
+                                </ul>
+                            </div>
+                            <div class="trend-card">
+                                <h5>В группах (сверху вниз):</h5>
+                                <ul>
+                                    <li>↑ Атомный радиус</li>
+                                    <li>↑ Восстановительные свойства</li>
+                                    <li>↓ Электроотрицательность</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="interactive-periodic">
+                            <h5>Интерактивная таблица:</h5>
+                            <div class="periodic-table" id="periodicTable">
+                                <!-- Таблица будет генерироваться JS -->
+                            </div>
+                            <div class="element-info" id="elementInfo">
+                                Выберите элемент для просмотра свойств
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Раздел неорганической химии -->
+            <div class="theory-section">
+                <h2><i class="fas fa-vial"></i> Неорганическая химия</h2>
+                
+                <div class="topic-card" onclick="toggleTopic('topic3')">
+                    <div class="topic-header">
+                        <h3>Классы неорганических соединений</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="topic-content" id="topic3">
+                        <h4>Основные классы:</h4>
+                        <table class="theory-table">
+                            <tr>
+                                <th>Класс</th>
+                                <th>Определение</th>
+                                <th>Примеры</th>
+                            </tr>
+                            <tr>
+                                <td>Оксиды</td>
+                                <td>Соединения с кислородом</td>
+                                <td>CO₂, CaO, SO₃</td>
+                            </tr>
+                            <tr>
+                                <td>Кислоты</td>
+                                <td>Дают H⁺ в растворе</td>
+                                <td>HCl, H₂SO₄, HNO₃</td>
+                            </tr>
+                            <tr>
+                                <td>Основания</td>
+                                <td>Дают OH⁻ в растворе</td>
+                                <td>NaOH, Ca(OH)₂</td>
+                            </tr>
+                            <tr>
+                                <td>Соли</td>
+                                <td>Продукты замещения H⁺ в кислоте</td>
+                                <td>NaCl, CaCO₃</td>
+                            </tr>
+                        </table>
+                        
+                        <div class="classification-game">
+                            <h5>Проверь себя:</h5>
+                            <p>К какому классу относится вещество: <span id="compoundToClassify">H₂SO₄</span></p>
+                            <div class="classification-options">
+                                <button class="btn" onclick="checkClassification('oxide')">Оксид</button>
+                                <button class="btn" onclick="checkClassification('acid')">Кислота</button>
+                                <button class="btn" onclick="checkClassification('base')">Основание</button>
+                                <button class="btn" onclick="checkClassification('salt')">Соль</button>
+                            </div>
+                            <div class="classification-feedback" id="classificationFeedback"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Раздел химических реакций -->
+            <div class="theory-section">
+                <h2><i class="fas fa-fire"></i> Химические реакции</h2>
+                
+                <div class="topic-card" onclick="toggleTopic('topic4')">
+                    <div class="topic-header">
+                        <h3>Типы химических реакций</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="topic-content" id="topic4">
+                        <div class="reaction-types">
+                            <div class="reaction-type">
+                                <h4>1. Реакции соединения</h4>
+                                <div class="reaction-example">
+                                    <span>2Mg + O<sub>2</sub> → 2MgO</span>
+                                    <button class="btn-reaction" onclick="balanceReaction('reaction1')">Уравнять</button>
+                                </div>
+                                <p>Из нескольких простых или сложных веществ образуется одно сложное</p>
+                            </div>
+                            
+                            <div class="reaction-type">
+                                <h4>2. Реакции разложения</h4>
+                                <div class="reaction-example">
+                                    <span>2H<sub>2</sub>O → 2H<sub>2</sub> + O<sub>2</sub></span>
+                                    <button class="btn-reaction" onclick="balanceReaction('reaction2')">Уравнять</button>
+                                </div>
+                                <p>Из одного сложного вещества образуется несколько простых или сложных веществ</p>
+                            </div>
+                            
+                            <div class="reaction-type">
+                                <h4>3. Реакции замещения</h4>
+                                <div class="reaction-example">
+                                    <span>Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub></span>
+                                    <button class="btn-reaction" onclick="balanceReaction('reaction3')">Уравнять</button>
+                                </div>
+                                <p>Атомы простого вещества замещают атомы одного из элементов в сложном веществе</p>
+                            </div>
+                            
+                            <div class="reaction-type">
+                                <h4>4. Реакции обмена</h4>
+                                <div class="reaction-example">
+                                    <span>AgNO<sub>3</sub> + NaCl → AgCl + NaNO<sub>3</sub></span>
+                                    <button class="btn-reaction" onclick="balanceReaction('reaction4')">Уравнять</button>
+                                </div>
+                                <p>Сложные вещества обмениваются своими составными частями</p>
+                            </div>
+                        </div>
+                        
+                        <div class="reaction-practice">
+                            <h5>Определи тип реакции:</h5>
+                            <div class="reaction-to-identify">
+                                <span id="currentReaction">CaCO<sub>3</sub> → CaO + CO<sub>2</sub></span>
+                            </div>
+                            <div class="reaction-options">
+                                <button class="btn" onclick="checkReactionType('combination')">Соединения</button>
+                                <button class="btn" onclick="checkReactionType('decomposition')">Разложения</button>
+                                <button class="btn" onclick="checkReactionType('replacement')">Замещения</button>
+                                <button class="btn" onclick="checkReactionType('exchange')">Обмена</button>
+                            </div>
+                            <div class="reaction-feedback" id="reactionFeedback"></div>
+                            <button class="btn" onclick="nextReaction()">Следующая реакция</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Раздел органической химии -->
+            <div class="theory-section">
+                <h2><i class="fas fa-leaf"></i> Органическая химия</h2>
+                
+                <div class="topic-card interactive" onclick="toggleTopic('topic5')">
+                    <div class="topic-header">
+                        <h3>Классы органических соединений</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="topic-content" id="topic5">
+                        <div class="organic-classes">
+                            <div class="organic-class">
+                                <h4>Углеводороды</h4>
+                                <div class="molecule-viewer" data-molecule="CH4">
+                                    <div class="molecule-structure">
+                                        <div class="atom c"></div>
+                                        <div class="bond" style="transform: rotate(0deg)"></div>
+                                        <div class="atom h" style="top: 30%; left: 70%"></div>
+                                        <div class="bond" style="transform: rotate(90deg)"></div>
+                                        <div class="atom h" style="top: 70%; left: 50%"></div>
+                                        <div class="bond" style="transform: rotate(180deg)"></div>
+                                        <div class="atom h" style="top: 50%; left: 30%"></div>
+                                        <div class="bond" style="transform: rotate(270deg)"></div>
+                                        <div class="atom h" style="top: 30%; left: 50%"></div>
+                                    </div>
+                                    <span>Метан (CH<sub>4</sub>)</span>
+                                </div>
+                                <ul>
+                                    <li>Алканы (предельные) - C<sub>n</sub>H<sub>2n+2</sub></li>
+                                    <li>Алкены (двойная связь) - C<sub>n</sub>H<sub>2n</sub></li>
+                                    <li>Алкины (тройная связь) - C<sub>n</sub>H<sub>2n-2</sub></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="organic-class">
+                                <h4>Кислородсодержащие</h4>
+                                <div class="molecule-viewer" data-molecule="C2H5OH">
+                                    <div class="molecule-structure">
+                                        <!-- Структура этанола -->
+                                    </div>
+                                    <span>Этанол (C<sub>2</sub>H<sub>5</sub>OH)</span>
+                                </div>
+                                <ul>
+                                    <li>Спирты - R-OH</li>
+                                    <li>Карбоновые кислоты - R-COOH</li>
+                                    <li>Альдегиды и кетоны</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="organic-class">
+                                <h4>Азотсодержащие</h4>
+                                <div class="molecule-viewer" data-molecule="CH3NH2">
+                                    <div class="molecule-structure">
+                                        <!-- Структура метиламина -->
+                                    </div>
+                                    <span>Метиламин (CH<sub>3</sub>NH<sub>2</sub>)</span>
+                                </div>
+                                <ul>
+                                    <li>Амины - R-NH<sub>2</sub></li>
+                                    <li>Аминокислоты</li>
+                                    <li>Нитросоединения</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="nomenclature-practice">
+                            <h5>Попрактикуйся в номенклатуре:</h5>
+                            <div class="compound-to-name" id="compoundToName">
+                                CH<sub>3</sub>-CH<sub>2</sub>-CH<sub>3</sub>
+                            </div>
+                            <input type="text" id="nomenclatureAnswer" placeholder="Введите название">
+                            <button class="btn" onclick="checkNomenclature()">Проверить</button>
+                            <div class="nomenclature-feedback" id="nomenclatureFeedback"></div>
+                            <button class="btn" onclick="nextCompound()">Следующее соединение</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Раздел электрохимии -->
+            <div class="theory-section">
+                <h2><i class="fas fa-bolt"></i> Электрохимия</h2>
+                
+                <div class="topic-card" onclick="toggleTopic('topic6')">
+                    <div class="topic-header">
+                        <h3>Электролиз</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="topic-content" id="topic6">
+                        <div class="electrolysis-simulator">
+                            <h4>Электролиз раствора NaCl</h4>
+                            <div class="electrolysis-setup">
+                                <div class="electrodes">
+                                    <div class="electrode anode">Анод (+)</div>
+                                    <div class="solution">NaCl (aq)</div>
+                                    <div class="electrode cathode">Катод (-)</div>
+                                </div>
+                                <div class="power-switch" onclick="togglePower()">
+                                    <div class="switch"></div>
+                                    <span>Питание</span>
+                                </div>
+                            </div>
+                            <div class="reaction-products hidden" id="electrolysisProducts">
+                                <h5>Процессы на электродах:</h5>
+                                <p><strong>На аноде:</strong> 2Cl<sup>-</sup> → Cl<sub>2</sub>↑ + 2e<sup>-</sup></p>
+                                <p><strong>На катоде:</strong> 2H<sub>2</sub>O + 2e<sup>-</sup> → H<sub>2</sub>↑ + 2OH<sup>-</sup></p>
+                                <p><strong>Суммарное уравнение:</strong> 2NaCl + 2H<sub>2</sub>O → 2NaOH + H<sub>2</sub>↑ + Cl<sub>2</sub>↑</p>
+                            </div>
+                            
+                            <div class="electrolysis-practice">
+                                <h5>Попробуй предсказать продукты электролиза:</h5>
+                                <select id="electrolyteSelect">
+                                    <option value="NaCl">NaCl (раствор)</option>
+                                    <option value="CuSO4">CuSO<sub>4</sub> (раствор)</option>
+                                    <option value="NaOH">NaOH (раствор)</option>
+                                    <option value="AgNO3">AgNO<sub>3</sub> (раствор)</option>
+                                </select>
+                                <button class="btn" onclick="predictElectrolysis()">Предсказать продукты</button>
+                                <div class="electrolysis-feedback" id="electrolysisFeedback"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="motivation-block">
+            <img src="images/danil2.png" alt="Данил изучает теорию" class="motivation-photo">
+            <div class="motivation-text">
+                <h3>Цитата дня:</h3>
+                <p>"Теория без практики мертва, практика без теории слепа!"</p>
+                <div class="motivation-quote">
+                    "Данил, не забывай после изучения теории сразу закреплять её на практике!"<br>
+                    <small>- Георгий</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ХимЭксперт</h3>
+                <p>Персональный курс подготовки к ЕГЭ по химии для Данила Розова.</p>
+                <p class="footer-message">Данил, успехов в изучении теории!</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Разделы</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="theory.html">Теория</a></li>
+                    <li class="footer-link"><a href="practice.html">Практика</a></li>
+                    <li class="footer-link"><a href="tasks.html">Задачи</a></li>
+                    <li class="footer-link"><a href="profile.html">Личный кабинет</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Поддержка</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="support.html">Задать вопрос</a></li>
+                    <li class="footer-link"><a href="#">Методические материалы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 ХимЭксперт. Сайт создан Grofer256 специально для Данила Розова.</p>
+        </div>
+    </footer>
+
+    <!-- Чат поддержки -->
+    <div class="support-chat" onclick="openSupportChat()">
+        <div class="chat-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-label">Ассистент Георгий</div>
+    </div>
+
+    <script src="js/theory.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

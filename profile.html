@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХимЭксперт - Личный кабинет</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-atom"></i>
+                    <span>ХимЭксперт</span>
+                </a>
+            </div>
+            
+            <div class="user-profile" id="userProfile">
+                <span class="profile-name">Данил Розов</span>
+                <img src="images/danil1.png" alt="Профиль Данила" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Главная</a></li>
+                <li class="nav-item"><a href="theory.html">Теория</a></li>
+                <li class="nav-item"><a href="practice.html">Практика</a></li>
+                <li class="nav-item"><a href="tasks.html">Задачи</a></li>
+                <li class="nav-item"><a href="profile.html" class="active">Кабинет</a></li>
+                <li class="nav-item"><a href="support.html">Поддержка</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Личный кабинет</h1>
+        
+        <div class="profile-grid">
+            <div class="profile-card user-info">
+                <div class="profile-header">
+                    <h2>Мой профиль</h2>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-edit"></i> Редактировать
+                    </button>
+                </div>
+                
+                <div class="user-details">
+                    <div class="user-avatar">
+                        <img src="images/danil1.png" alt="Данил Розов">
+                        <div class="user-level">
+                            <div class="level-progress" style="--progress: 68%">
+                                <span>68%</span>
+                            </div>
+                            <strong>Химик-любитель</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="user-data">
+                        <div class="data-item">
+                            <span>Имя:</span>
+                            <strong>Данил Розов</strong>
+                        </div>
+                        <div class="data-item">
+                            <span>Email:</span>
+                            <strong>danil.rozov@example.com</strong>
+                        </div>
+                        <div class="data-item">
+                            <span>Дата регистрации:</span>
+                            <strong>15.03.2025</strong>
+                        </div>
+                        <div class="data-item">
+                            <span>Цель:</span>
+                            <strong>Сдать ЕГЭ по химии на 85+ баллов</strong>
+                        </div>
+                        <div class="data-item">
+                            <span>Дней до экзамена:</span>
+                            <strong id="profileDaysLeft">17</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-card progress-card">
+                <h2>Мой прогресс</h2>
+                
+                <div class="progress-stats">
+                    <div class="stat-item big">
+                        <div class="stat-circle" style="--percent: 68">
+                            <svg>
+                                <circle class="bg" cx="50" cy="50" r="45"></circle>
+                                <circle class="progress" cx="50" cy="50" r="45"></circle>
+                            </svg>
+                            <div class="stat-value">68%</div>
+                        </div>
+                        <span>Общий прогресс</span>
+                    </div>
+                    
+                    <div class="stats-column">
+                        <div class="stat-item">
+                            <span>Пройдено тем:</span>
+                            <strong>24 из 35</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Решено задач:</span>
+                            <strong>156</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Средняя точность:</span>
+                            <strong>72%</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Часов обучения:</span>
+                            <strong>48</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="progress-graph">
+                    <h3>График прогресса</h3>
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="profile-card achievements-card">
+                <h2>Мои достижения</h2>
+                
+                <div class="achievements-grid">
+                    <div class="achievement earned">
+                        <div class="achievement-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Первые шаги</h3>
+                            <p>Решил 10 задач</p>
+                            <span class="achievement-date">05.04.2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement earned">
+                        <div class="achievement-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Знаток теории</h3>
+                            <p>Изучил 15 тем</p>
+                            <span class="achievement-date">12.04.2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement earned">
+                        <div class="achievement-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Скоростное решение</h3>
+                            <p>Решил 5 задач подряд без ошибок</p>
+                            <span class="achievement-date">18.04.2025</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement">
+                        <div class="achievement-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Мастер химии</h3>
+                            <p>Решил 100 задач</p>
+                            <span class="achievement-date">Не получено</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement">
+                        <div class="achievement-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Теоретик</h3>
+                            <p>Изучил все темы</p>
+                            <span class="achievement-date">Не получено</span>
+                        </div>
+                    </div>
+                    
+                    <div class="achievement">
+                        <div class="achievement-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Эксперт</h3>
+                            <p>Точность выше 90%</p>
+                            <span class="achievement-date">Не получено</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-card study-plan">
+                <h2>Индивидуальный план</h2>
+                
+                <div class="plan-description">
+                    <p>Персональный план подготовки, составленный на основе вашего прогресса и целей.</p>
+                </div>
+                
+                <div class="plan-tasks">
+                    <div class="plan-task completed">
+                        <div class="task-checkbox">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="task-info">
+                            <h3>Повторить тему "Строение атома"</h3>
+                            <p>До 10.05.2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-task completed">
+                        <div class="task-checkbox">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="task-info">
+                            <h3>Решить 10 задач по органической химии</h3>
+                            <p>До 12.05.2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-task current">
+                        <div class="task-checkbox">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="task-info">
+                            <h3>Изучить тему "Электролиз растворов"</h3>
+                            <p>До 15.05.2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-task">
+                        <div class="task-checkbox">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="task-info">
+                            <h3>Решить 5 задач высокого уровня сложности</h3>
+                            <p>До 18.05.2025</p>
+                        </div>
+                    </div>
+                    
+                    <div class="plan-task">
+                        <div class="task-checkbox">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="task-info">
+                            <h3>Пробный экзамен на время</h3>
+                            <p>До 20.05.2025</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn">
+                    <i class="fas fa-download"></i> Скачать полный план
+                </button>
+            </div>
+        </div>
+        
+        <div class="motivation-block reverse">
+            <div class="motivation-text">
+                <h3>Персональное сообщение:</h3>
+                <p>"Данил, ты отлично справляешься! Твой прогресс - 68%, это выше среднего показателя среди учащихся."</p>
+                <div class="motivation-quote">
+                    "Если продолжать в том же темпе, ты достигнешь своей цели к 15 мая. Так держать!"<br>
+                    <small>- Георгий, твой репетитор</small>
+                </div>
+            </div>
+            <img src="images/georgiy3.png" alt="Георгий анализирует прогресс" class="motivation-photo">
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ХимЭксперт</h3>
+                <p>Персональный курс подготовки к ЕГЭ по химии для Данила Розова.</p>
+                <p class="footer-message">Ты на правильном пути, продолжай в том же духе!</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Разделы</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="theory.html">Теория</a></li>
+                    <li class="footer-link"><a href="practice.html">Практика</a></li>
+                    <li class="footer-link"><a href="tasks.html">Задачи</a></li>
+                    <li class="footer-link"><a href="profile.html">Личный кабинет</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Поддержка</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="support.html">Задать вопрос</a></li>
+                    <li class="footer-link"><a href="#">Методические материалы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 ХимЭксперт. Сайт создан Grofer256 специально для Данила Розова.</p>
+        </div>
+    </footer>
+
+    <!-- Чат поддержки -->
+    <div class="support-chat" onclick="openSupportChat()">
+        <div class="chat-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-label">Ассистент Георгий</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

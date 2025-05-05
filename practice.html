@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ХимЭксперт - Практика</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/practice.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-atom"></i>
+                    <span>ХимЭксперт</span>
+                </a>
+            </div>
+            
+            <div class="user-profile" id="userProfile">
+                <span class="profile-name">Данил Розов</span>
+                <img src="images/danil1.png" alt="Профиль Данила" class="profile-img">
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Главная</a></li>
+                <li class="nav-item"><a href="theory.html">Теория</a></li>
+                <li class="nav-item"><a href="practice.html" class="active">Практика</a></li>
+                <li class="nav-item"><a href="tasks.html">Задачи</a></li>
+                <li class="nav-item"><a href="profile.html">Кабинет</a></li>
+                <li class="nav-item"><a href="support.html">Поддержка</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="page-title">Практические задания</h1>
+        
+        <div class="card">
+            <p>Здесь ты можешь отработать теоретические знания на практике. Выбирай тип заданий и начинай тренироваться!</p>
+            
+            <div class="practice-filter">
+                <button class="filter-btn active" data-filter="all">Все</button>
+                <button class="filter-btn" data-filter="basic">Базовый уровень</button>
+                <button class="filter-btn" data-filter="advanced">Повышенный уровень</button>
+                <button class="filter-btn" data-filter="hard">Высокий уровень</button>
+            </div>
+        </div>
+        
+        <div class="practice-grid">
+            <div class="practice-card" data-level="basic">
+                <div class="practice-icon">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>Составление формул</h3>
+                <p>Научись правильно составлять химические формулы соединений</p>
+                <button class="btn" onclick="startPractice('formulas')">Начать</button>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%"></div>
+                    <span>75% освоено</span>
+                </div>
+            </div>
+            
+            <div class="practice-card" data-level="basic">
+                <div class="practice-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3>Расстановка коэффициентов</h3>
+                <p>Отработка навыков уравнивания химических реакций</p>
+                <button class="btn" onclick="startPractice('coefficients')">Начать</button>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%"></div>
+                    <span>60% освоено</span>
+                </div>
+            </div>
+            
+            <div class="practice-card" data-level="advanced">
+                <div class="practice-icon">
+                    <i class="fas fa-vial"></i>
+                </div>
+                <h3>Решение экспериментальных задач</h3>
+                <p>Практика работы с лабораторным оборудованием</p>
+                <button class="btn" onclick="startPractice('experiments')">Начать</button>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 45%"></div>
+                    <span>45% освоено</span>
+                </div>
+            </div>
+            
+            <div class="practice-card" data-level="hard">
+                <div class="practice-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Расчетные задачи</h3>
+                <p>Решение задач на вычисления по химическим формулам</p>
+                <button class="btn" onclick="startPractice('calculations')">Начать</button>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 30%"></div>
+                    <span>30% освоено</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="practice-modal" id="practiceModal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closePracticeModal()">&times;</span>
+                <h2 id="modalTitle">Составление формул</h2>
+                
+                <div class="task-container">
+                    <div class="task-question">
+                        <p>Составьте формулу оксида алюминия:</p>
+                    </div>
+                    
+                    <div class="task-answer">
+                        <div class="formula-editor">
+                            <input type="text" id="formulaInput" placeholder="Введите формулу">
+                            <button class="btn" onclick="checkFormula()">Проверить</button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-feedback" id="taskFeedback">
+                        <div class="feedback-correct">
+                            <i class="fas fa-check-circle"></i>
+                            <p>Верно! Al₂O₃ - оксид алюминия.</p>
+                        </div>
+                        <div class="feedback-incorrect">
+                            <i class="fas fa-times-circle"></i>
+                            <p>Неверно. Попробуй еще раз. Подсказка: Al имеет степень окисления +3, O - -2.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="task-navigation">
+                        <button class="btn btn-secondary" onclick="showHint()">
+                            <i class="fas fa-lightbulb"></i> Подсказка
+                        </button>
+                        <button class="btn" onclick="nextTask()">
+                            Следующее задание <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="practice-stats">
+                    <div class="stat-item">
+                        <span>Правильно:</span>
+                        <strong id="correctCount">12</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Неправильно:</span>
+                        <strong id="incorrectCount">4</strong>
+                    </div>
+                    <div class="stat-item">
+                        <span>Точность:</span>
+                        <strong id="accuracy">75%</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="motivation-block reverse">
+            <div class="motivation-text">
+                <h3>Совет от Георгия:</h3>
+                <p>"Практика - это ключ к успеху на ЕГЭ. Решай как можно больше задач разных типов!"</p>
+                <div class="motivation-quote">
+                    "Данил, я вижу твой прогресс! Ты уже улучшил свои результаты на 25% за последние 2 недели. Так держать!"<br>
+                    <small>- Георгий</small>
+                </div>
+            </div>
+            <img src="images/georgiy1.png" alt="Георгий дает совет" class="motivation-photo">
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ХимЭксперт</h3>
+                <p>Персональный курс подготовки к ЕГЭ по химии для Данила Розова.</p>
+                <p class="footer-message">Практика делает мастера, Данил!</p>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Разделы</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="theory.html">Теория</a></li>
+                    <li class="footer-link"><a href="practice.html">Практика</a></li>
+                    <li class="footer-link"><a href="tasks.html">Задачи</a></li>
+                    <li class="footer-link"><a href="profile.html">Личный кабинет</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Поддержка</h3>
+                <ul class="footer-links">
+                    <li class="footer-link"><a href="support.html">Задать вопрос</a></li>
+                    <li class="footer-link"><a href="#">Методические материалы</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 ХимЭксперт. Сайт создан Grofer256 специально для Данила Розова.</p>
+        </div>
+    </footer>
+
+    <!-- Чат поддержки -->
+    <div class="support-chat" onclick="openSupportChat()">
+        <div class="chat-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="chat-label">Ассистент Георгий</div>
+    </div>
+
+    <script src="js/practice.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
